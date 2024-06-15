@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../../devantashma.css" />
+        <script src="index.js" type="module"></script>
+        <title>Practice Problems: Microtasks & Promises</title>
+
+        <style>
+            .task-container {
+                display: flex;
+                gap:10px;
+                background-color: paleturquoise;
+                padding:5px;
+                margin-block: 10px;
+                border-radius: 5px;
+                font-weight: bold;
+            }
+
+            .task-container.completed {
+                background-color: palegreen;
+            }
+
+            .task-container.failed {
+                background-color: palevioletred;
+            }
+
+            #solution{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            #solution h2, #solution h3 {
+                width:100%;
+            }
+
+            #solution #result {
+                width: 50%;
+            }
+
+            #runStatus {
+                margin-block: 10px;
+                background-color: black;
+                width: 45%;
+                height: 425px;
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                
+            }
+
+            #runStatus img {
+                width: 100%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="container">
+            <header>
+                <img src="../../images/pfp.jpg" width="75" height="75" />
+                <span>devantashma studies</span>
+                <h1>Practice Problems: Microtasks & Promises</h1>
+            </header>
+
+            <main>
+                <section id="statement">
+                   <p>Create a simple task queue simulation using JavaScript promises and microtasks. The task queue should process tasks in the order they are added, ensuring that each task completes before the next one starts.</p> 
+                </section>
+                
+                <section>
+                    <ol>
+                        <li>
+                            Implement a <code>TaskQueue</code> class that has the following methods:
+                            <ul>
+                                <li><code>addTask(taskFunction)</code>: Adds a new task to the queue. <code>taskFunction</code> should return a promise that resolves when the task is complete.</li>
+                                <li><code>runTasks()</code>: Starts processing the tasks in the queue one by one.</li>
+                            </ul>
+                        </li>
+                        <li>Each task should be simulated by a function that returns a promise, which resolves after a random delay between 500ms and 1500ms.</li>
+                        <li>Demonstrate the <code>TaskQueue</code> class by adding and running a series of tasks, logging the start and end of each task to the console.</li>
+                    </ol>
+                </section>
+                
+                <section id="requirements">
+                    <h2>Requirements</h2>
+                    <ul>
+                        <li>Tasks should be executed sequentially in the order they are added.</li>
+                        <li>Each task should log "Task X started" and "Task X completed" to the console, where X is the task number.</li>
+                        <li>Use microtasks (promises) to manage the task execution.</li>
+                    </ul>
+                </section>
+
+                <section id="example">
+                    <h2>Example Usage</h2>
+                    <p>javascript</p>
+                    <pre><code>
+    const taskQueue = new TaskQueue();
+
+    taskQueue.addTask(() => simulateTask(1));
+    taskQueue.addTask(() => simulateTask(2));
+    taskQueue.addTask(() => simulateTask(3));
+
+    taskQueue.runTasks();
+                    </code></pre>
+                </section>
+
+                <section id="solution">
+                    <h2>Solution</h2>
+                    <h3>Task Runner</h3>
+                    <div id="result">
+                        
+                    </div>
+                    <div id="runStatus"></div>
+                </section>
+            </main>
+
+            <footer>
+                <p>@devantashma</p>
+            </footer>
+        </div>
+    </body>
+    <script>
+
+    </script>
+</html>

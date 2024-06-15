@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../../devantashma.css" />
+        <script src="practice-2.js" type="module"></script>
+        <title>Practice Problems: Microtasks & Promises</title>
+
+    </head>
+
+    <body>
+        <div id="container">
+            <header>
+                <img src="../../images/pfp.jpg" width="75" height="75" />
+                <span>devantashma studies</span>
+                <span id="topic">Microtasks & Promises</span>
+                <h1>Practice Problem #2: Fetch & Process Data</h1>
+            </header>
+
+            <main>
+                <section id="statement">
+                   <p>Create a program that simulates a sequence of asynchronous operations using promises. Each operation should consist of fetching some data, processing the data, and then logging the results. Ensure that all operations are logged in the correct order using microtasks.</p> 
+                </section>
+                
+                <section>
+                    <ol>
+                        <li>
+                            Implement three asynchronous functions:
+                            <ul>
+                                <li><code>fetchData(url)</code>: Simulates fetching data from a URL. It should return a promise that resolves with the data after a random delay (between 100 and 500 milliseconds).</li>
+                                <li><code>processData(data)</code>: Simulates processing the fetched data. It should return a promise that resolves with the processed data after a random delay (between 100 and 300 milliseconds).</li>
+                                <li><code>logResults(data)</code>: Logs the processed data to the console.</li>
+                            </ul>
+                        </li>
+                        <li>Chain these functions together to simulate a sequence of operations:
+                            <ul>
+                                <li>Fetch data from three different URLs.</li>
+                                <li>Process the fetched data.</li>
+                                <li>Log the processed data to the console.</li>
+                            </ul>
+                        </li>
+                        <li>Ensure that the operations for each URL are logged in the correct order using microtasks (promises).</li>
+                    </ol>
+                </section>
+
+                <section id="example">
+                    <h2>Example Usage</h2>
+                    <p>javascript</p>
+                    <pre><code>
+    const urls = [
+        'https://api.example.com/data1',
+        'https://api.example.com/data2',
+        'https://api.example.com/data3'
+    ];
+
+    performOperations(urls);
+                    </code></pre>
+                </section>
+
+                <section id="solution">
+                    <h2>Solution</h2>
+                    <div id="credits">
+                        <p>APIs used: <a href="https://jsonplaceholder.typicode.com/">{JSON}Placeholder</a></p>
+                    </div>
+                    <div id="result"></div>
+                </section>
+            </main>
+
+            <footer>
+                <p>@devantashma</p>
+            </footer>
+        </div>
+    </body>
+    <script>
+
+    </script>
+</html>

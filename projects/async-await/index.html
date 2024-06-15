@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../../devantashma.css" />
+        <script src="index.js" type="module"></script>
+        <title>Async/Await</title>
+    </head>
+
+    <body>
+        <div id="container">
+            <header>
+                <img src="../../images/pfp.jpg" width="75" height="75" />
+                <span>devantashma studies</span>
+                <span id="topic">Promises &CenterDot; Async/Await</span>
+                <h1>Practice Problem: Async/Await</h1>
+            </header>
+
+            <main>
+
+                <section id="introduction">
+                    <h2>(Updated) Fetch & Display User Data with <code>async/await</code></h2>
+                    <p>Update a small codebase from using <code>.then()</code>, <code>.catch()</code>, and <code>.finally()</code> to using <code>async/await</code>.</p>
+                </section>
+
+                <section id="code">
+                    <h2>Current Code (using Promises)</h2>
+                    <p>javascript</p>
+                    <pre>
+                        <code>
+    const USERS_API_URL = 'https://jsonplaceholder.typicode.com/users';
+    const POSTS_API_URL = 'https://jsonplaceholder.typicode.com/posts?userId=';
+    const COMMENTS_API_URL = 'https://jsonplaceholder.typicode.com/comments?postId=';
+    
+    function fetchUserData(userId) {
+        fetch(`${USERS_API_URL}/${userId}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch user data');
+                }
+                return response.json();
+            })
+            .then(user => {
+                console.log('User:', user);
+                return fetch(`${POSTS_API_URL}${userId}`);
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch posts');
+                }
+                return response.json();
+            })
+            .then(posts => {
+                console.log('Posts:', posts);
+                const commentPromises = posts.map(post =>
+                    fetch(`${COMMENTS_API_URL}${post.id}`)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Failed to fetch comments');
+                            }
+                            return response.json();
+                        })
+                );
+                return Promise.all(commentPromises);
+            })
+            .then(commentsArray => {
+                console.log('Comments:', commentsArray);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            })
+            .finally(() => {
+                console.log('Finished fetching data');
+            });
+    }
+    
+    fetchUserData(1);
+                            
+                        </code>
+                    </pre>
+                </section>
+
+                <section>
+                    <h2>Tasks</h2>
+                    <p>Your task is to refactor the code above to use <code>async/await</code> instead of <code>.then()</code>, <code>.catch()</code>, and <code>.finally()</code>. Follow the steps below:</p>
+                    <ol>
+                        <li><mark>Refactor</mark> the <code>fetchUserData</code> function to use <code>async/await</code>.</li>
+                        <li><mark>Handle errors</mark> using <code>try/catch</code>.</li>
+                        <li>Ensure all data fetching operations are executed in the <mark>same order</mark> and logic as the original code.</li>
+                        <li><mark>Log a final message</mark> after all data has been fetched and processed.</li>
+                    </ol>
+                </section>
+
+                <section id="solution">
+                    <h2>Solution</h2>
+                    <p>See index.js and open the Chrome console to see!</p>
+                </section>
+
+            </main>
+
+            <footer>
+                <p>@devantashma</p>
+            </footer>
+        </div>
+    </body>
+</html>

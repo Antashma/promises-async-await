@@ -1,0 +1,19 @@
+#result {
+    border: 1px solid #999;
+    padding: 10px;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#result h4 {
+    color: silver;
+    text-transform: uppercase;
+}
+
+#result h3 {
+    color: dodgerblue;
+}
+
+#result div {
+    border-top: 1px dotted silver;
+}

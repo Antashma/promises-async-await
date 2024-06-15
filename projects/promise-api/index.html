@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../../devantashma.css" />
+        <script src="index.js"></script>
+        <title>Practice Problems: Promise API</title>
+    </head>
+    <body>
+        <div id="container">
+            <header>
+                <img src="../../images/pfp.jpg" width="75" height="75" />
+                <span>devantashma studies</span>
+                <h1>Practice Problems: Promise API</h1>
+            </header>
+
+            <main>
+                <section>
+                    <h2>Explanation</h2>
+                    <p>Each practice problem focuses on one specific method:</p>
+                    <ol>
+                        <li><code>Promise.all</code>: Requires all promises to succeed.</li>
+                        <li>
+                            <code>Promise.allSettled</code>: Provides the status of each
+                            promise, regardless of the outcome.
+                        </li>
+                        <li>
+                            <code>Promise.any</code>: Resolves as soon as any one of the
+                            promises succeeds.
+                        </li>
+                        <li>
+                            <code>Promise.race</code>: Resolves or rejects as soon as any one
+                            of the promises settles.
+                        </li>
+                    </ol>
+
+                    <p>
+                        These problems should help you understand how each
+                        method works and how to handle different scenarios using
+                        the Promise class.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>APIs</h2>
+                    <ul>
+                        <li>
+                            User API:
+                            <code
+                                >https://jsonplaceholder.typicode.com/users/1</code
+                            >
+                        </li>
+                        <li>
+                            Posts API:
+                            <code
+                                >https://jsonplaceholder.typicode.com/posts?userId=1</code
+                            >
+                        </li>
+                        <li>
+                            Comments API:
+                            <code
+                                >https://jsonplaceholder.typicode.com/comments?postId=1</code
+                            >
+                        </li>
+                    </ul>
+                </section>
+
+                <section id="promise-all">
+                    <h2>Practice Problem 1: <code>Promise.all</code></h2>
+                    <h3>Scenario</h3>
+                    <p>
+                        You need to fetch user data, posts, and comments
+                        simultaneously. All requests must succeed for the
+                        operation to be considered successful.
+                    </p>
+                    <h3>Task</h3>
+                    <p>
+                        Fetch the user data, posts, and comments simultaneously
+                        using <code>Promise.all</code>. If any request fails, handle the
+                        error.
+                    </p>
+                </section>
+                <section id="promise-allSettled">
+                    <h2>Practice Problem 2: <code>Promise.allSettled</code></h2>
+                    <h3>Scenario</h3>
+                    <p>
+                        You need to fetch user data, posts, and comments simultaneously. You need to know the status of each request, regardless of whether they succeed or fail.
+
+                    </p>
+                    <h3>Task</h3>
+                    <p>
+                        Fetch the user data, posts, and comments simultaneously using <code>Promise.allSettled</code>.Display the status of each request.
+                    </p>
+                </section>
+                <section id="promise-any">
+                    <h2>Practice Problem 3: <code>Promise.any</code></h2>
+                    <h3>Scenario</h3>
+                    <p>
+                        You need to fetch user data, posts, and comments simultaneously. You only need one request to succeed for the operation to be considered successful.
+
+                    </p>
+                    <h3>Task</h3>
+                    <p>
+                        Fetch the user data, posts, and comments simultaneously using <code>Promise.any</code>. If at least one request succeeds, display the result. If all requests fail, handle the aggregate error.
+                    </p>
+                </section>
+
+                <section id="promise-race">
+                    <h2>Practice Problem 4: <code>Promise.race</code></h2>
+                    <h3>Scenario</h3>
+                    <p>
+                        You need to fetch user data, posts, and comments simultaneously. You want to use the result of the first request to complete, whether it succeeds or fails.
+                    </p>
+                    <h3>Task</h3>
+                    <p>
+                        Fetch the user data, posts, and comments simultaneously using <code>Promise.race</code>. Display the result of the first request to complete, whether it is successful or not.
+                    </p>
+                </section>
+
+                <section id="solution">
+                    <h2>Solution</h2>
+                    <p>
+                        View solution in index.js and uncomment functions to run. Results will show in console.
+                    </p>
+                </section>
+            </main>
+
+            <footer>
+                <p>@devantashma</p>
+            </footer>
+        </div>
+    </body>
+</html>

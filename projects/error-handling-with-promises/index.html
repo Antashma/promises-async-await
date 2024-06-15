@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../../devantashma.css" />
+        <title>Error Handling with Promises</title>
+    </head>
+    <body>
+        <div id="container">
+            <header>
+                <img src="../../images/pfp.jpg" width="75" height="75"/>
+                <span>devantashma studies</span>
+                <h1>Practice Problem: Error Handling with Promises</h1>
+            </header>
+
+            <main>
+                <section id="summary">
+                    <p>
+                        This practice problem will help you understand how to
+                        work with Promises and handle errors effectively in a
+                        real-world scenario.
+                    </p>
+                </section>
+
+                <section id="scenario">
+                    <h2>Scenario:</h2>
+                    <p>
+                        You are building a simple web application that fetches
+                        user data from a mock API and then fetches additional
+                        information about the user's GitHub profile. If any part
+                        of the process fails (e.g., network issues, invalid user
+                        data), you need to handle the errors appropriately and
+                        notify the user.
+                    </p>
+                </section>
+
+                <section id="steps">
+                    <h2>Steps:</h2>
+                    <ol>
+                        <li>
+                            Fetch user data from a mock API endpoint:
+                            `<code>https://jsonplaceholder.typicode.com/users/1</code>`
+                        </li>
+                        <li>
+                            Extract the username from the fetched user data.
+                        </li>
+                        <li>
+                            Fetch the user's GitHub profile from the GitHub API:
+                            `<code>https://api.github.com/users/{username}</code>`
+                        </li>
+                        <li>
+                            Display the user's GitHub avatar on the webpage.
+                        </li>
+                        <li>
+                            Handle any errors that occur during the fetch
+                            operations and display an alert with an appropriate
+                            error message.
+                        </li>
+                    </ol>
+                </section>
+
+                <section id="requirements">
+                    <h2>Requirements:</h2>
+                    <ul>
+                        <li>Use the fetch API to make the network requests.</li>
+                        <li>
+                            Chain Promises to handle the asynchronous
+                            operations.
+                        </li>
+                        <li>Implement proper error handling using .catch.</li>
+                        <li>
+                            Ensure that the error handling works for both
+                            network errors and invalid data.
+                        </li>
+                    </ul>
+                </section>
+
+                <section id="tasks">
+                    <h2>Tasks:</h2>
+                    <ol>
+                        <li>
+                            Implement the fetch operations to get user data and
+                            GitHub profile.
+                        </li>
+                        <li>
+                            Properly handle and propagate errors using
+                            `<code>.catch</code>`.
+                        </li>
+                        <li>
+                            Display the GitHub avatar on the page if all fetch
+                            operations are successful.
+                        </li>
+                        <li>
+                            Test your implementation by intentionally causing
+                            errors (e.g., using an invalid URL).
+                        </li>
+                    </ol>
+                </section>
+
+                <section id="expected">
+                    <h2>Expected Outcome:</h2>
+
+                    <ul>
+                        <li>
+                            If both fetch operations succeed, the user's GitHub
+                            avatar should be displayed on the webpage.
+                        </li>
+                        <li>
+                            If any fetch operation fails, an alert should
+                            display an appropriate error message.
+                        </li>
+                    </ul>
+                </section>
+
+                <section id="solution">
+                    <h2>Solution</h2>
+                    <p>
+                        View solution [<a href="./solution.html" target="_blank"
+                            >Link</a
+                        >].
+                    </p>
+                </section>
+            </main>
+
+            <footer>
+                <p>@devantashma</p>
+            </footer>
+        </div>
+    </body>
+</html>

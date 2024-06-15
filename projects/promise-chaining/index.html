@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../devantashma.css" />
+    <title>Promise Chaining</title>
+</head>
+<body>
+    <div id="container">
+    <header>
+        <img src="../../images/pfp.jpg" width="75" height="75" />   
+        <span>devantashma studies</span>  
+        <h1>Promise Chaining</h1>
+    </header>
+
+    <main>
+        <section id="result">
+            <h2>Displaying User & Posts</h2>
+        </section>
+    </main>
+
+    <footer>
+        <p>@devantashma</p>
+    </footer>
+</div>
+</body>
+
+<script>
+    function loadScript(src) {
+        return new Promise(function(resolve, reject) {
+            let script = document.createElement("script");
+            script.src = src;
+
+            script.onload = () => resolve(script);
+            script.onerror = () => reject(new Error(`Script load error for ${src}`));
+            
+            document.head.append(script);
+        })
+    }
+
+    let promise = loadScript("fetchUserAndPostsData.js")
+        .then(script => loadScript("displayResults.js"))
+        .then(script => {
+            fetchUserDataAndPosts(2)
+                .then(data => displayResults(data))
+                .catch(error => console.error(`Error: ${error.message}`))
+                return script
+        })
+        .then(script => console.log(`${script.src} is loaded!`))
+        .catch(err => console.error(err));
+</script>
+</html>

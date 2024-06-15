@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Problem: Fetch User Data and Posts</title>
+    <script src="index.js"></script>
+    <!-- <script src="index-solution.js"></script> -->
+    <link rel="stylesheet" href="../../devantashma.css" />
+
+</head>
+<body>
+    <div id="container">
+        <header>
+            <img id="pfp" src="../../images/pfp.jpg" />
+            <span>devantashma studies</span>
+            <h1>Practice Problem: Fetch User Data and Posts</h1>
+
+        </header>
+    <section id="objective">
+        <h2>Objective</h2>
+        <p>Create a function that fetches user data and their posts from a mock API. The function should use Promises to handle the asynchronous operations.</p>
+    </section>
+
+    <section id="instructions">
+    <h2>Instructions</h2>
+        <ol>
+            <li>
+                <h3>Mock API Endpoints:</h3>
+                <ul>
+                    <li>`<code>https://jsonplaceholder.typicode.com/users/1</code>`: This endpoint returns the data of a user with ID 1.</li>
+                    <li>`<code>https://jsonplaceholder.typicode.com/posts?userId=1</code>`: This endpoint returns the posts created by the user with ID 1.</li>
+                </ul>
+            </li>
+
+
+            <li>
+                <h3>Create a function `<code>fetchUserDataAndPosts</code>`:</h3>
+                <ul>
+                    <li>This function should fetch the user data from the first endpoint.</li>
+                    <li>After successfully fetching the user data, it should then fetch the user's posts from the second endpoint.</li>
+                    <li>The function should return a Promise that resolves to an object containing both the user data and their posts.</li>
+            </ul>
+            </li>
+            <li>
+                <h3>Error Handling</h3>
+                <p>Ensure that your function properly handles any errors that might occur during the fetch operations.</p>
+            </li>
+            <li>
+                <h3>Output Example:</h3>
+                <p>The resolved value of the Promise should be in the following format:</p>
+
+                <h4>javascript</h4>
+                <pre><code>
+                    {
+                        user: { /* user data */ },
+                        posts: [ /* array of posts */ ]
+                    }
+                </code></pre>
+            </li>
+        </ol>
+    </section>  
+
+    <section id="solution">
+        <h2>Solution</h2>
+        <p>User data will populate here when solution is completed.</p>
+        <div id="result"></div>
+    </section>
+
+    <footer>
+        <p>@devantasha</p>
+    </footer>
+</div>
+</body>
+</html>

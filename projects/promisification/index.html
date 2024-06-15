@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../../devantashma.css" />
+        <link rel="stylesheet" href="./blockquote.css" />
+        <script src="index.js" type="module"></script>
+        <title>Practice Problems: Promisification</title>
+    </head>
+
+    <body>
+        <div id="container">
+            <header>
+                <img src="../../images/pfp.jpg" width="75" height="75" />
+                <span>devantashma studies</span>
+                <h1>Promisification</h1>
+            </header>
+
+            <main>
+                <section id="result"></section>
+            </main>
+
+            <footer>
+                <p>@devantashma</p>
+            </footer>
+        </div>
+    </body>
+    <script>
+        function loadScript(src, callback) {
+            let script = document.createElement('script');
+            script.src = src;
+
+            script.onload = () => callback(null, script);
+            script.onerror = () => callback(new Error(`Script load error for ${src}`));
+
+            document.head.append(script);
+        }
+
+        // loadScript("./index.js", function(error, script) {
+        //     if (error) {
+        //         alert(error)
+        //     } else {
+        //         console.log(`'${script.src}' loaded successfully!`)
+        //     }
+        // })
+
+
+        // const loadScriptPromise = function(src) {       
+        //     return new Promise((resolve, reject) => {
+        //         loadScript(src, function(error, script) {
+        //             if (error) reject(error)
+        //             else resolve(`${script.src} loaded successfully!`)
+        //         })
+        //     })
+        // }
+
+        // loadScriptPromise("./index.js")
+        //     .then(res => console.log(res))
+        //     .catch(err => alert(err.message))
+
+
+        function promisify(f, manyArgs = false) {
+            return function(...args) {
+                return new Promise((resolve, reject) => {
+                    function callback(error, ...results) {
+                        if (error) reject(error)
+                        else resolve(manyArgs ? results : results[0])
+                    }
+
+                    args.push(callback);
+
+                    f.call(this, ...args);
+                })
+            } 
+        }
+
+        let promisifiedLoadScript = promisify(loadScript, false)
+        promisifiedLoadScript("./displayQuote.js").then(res => console.log(res)).catch(err => console.error(err));
+    </script>
+</html>

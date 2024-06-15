@@ -1,0 +1,24 @@
+blockquote {
+    border-left: 2px solid #333
+}
+
+blockquote p:first-child {
+    background-color: #eee;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+blockquote p:first-child::before {
+    content:   '\201c';
+}
+blockquote p:first-child::after {
+    content:   '\201d';
+}
+
+blockquote p:nth-child(2) {
+    text-align: right;
+}
+
+blockquote p:nth-child(2)::before {
+    content: "\2014 ";
+}

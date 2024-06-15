@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="./index.js"></script>
+        <link rel="stylesheet" href="../../devantashma.css" />
+        <link rel="stylesheet" href="solution.css" />
+        <title>[Solution] Practice Problem: Error Handling with Promises</title>
+    </head>
+    <body>
+        <div id="container">
+            <header>
+                <img src="../../images/pfp.jpg" width="75" height="75" />
+                <span>devantashma studies</span>
+                <h1>Github Avatar Retriever</h1>
+            </header>
+            <main>
+                <form>
+                    <label
+                        ><span>See avatar for:</span>
+                        <select name="dd-user-select" id="dd-user-select">
+                            <option value="0">--Select User--</option>
+                            <option value="1">Bret</option>
+                            <option value="2">Antonette</option>
+                            <option value="3">Samantha</option>
+                            <option value="4">Karianne</option>
+                            <option value="5">Kamren</option>
+                            <option value="6">Leopoldo_Corkery</option>
+                            <option value="7">Elwyn.Skiles</option>
+                            <option value="8">Maxime_Nienow</option>
+                            <option value="9">Delphine</option>
+                            <option value="10">Moriah.Stanton</option>
+                        </select>
+                    </label>
+                </form>
+
+                <section id="result"></section>
+
+                <section id="credits">
+                    <p>
+                        APIs used:
+                        <a href="https://jsonplaceholder.typicode.com/"
+                            >{JSON} Placeholder</a
+                        >
+                        |
+                        <a
+                            href="https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28#get-a-user"
+                            >GitHub REST API</a
+                        >
+                    </p>
+                </section>
+            </main>
+
+            <footer>@devantashma</footer>
+        </div>
+    </body>
+    <script>
+        const userSelect = document.querySelector("#dd-user-select");
+        const resultContainer = document.querySelector("result");
+
+        userSelect.addEventListener("change", (e) => {
+            const { value } = e.target;
+            if (value == 0) return;
+            
+            if (result.hasChildNodes()) {
+                while (result.firstChild) result.firstChild.remove();
+            }
+            
+            getUserData(e.target.value);
+        });
+    </script>
+</html>
