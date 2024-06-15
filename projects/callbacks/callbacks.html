@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Callbacks Example | Promises, async/await</title>
+  </head>
+  <body>
+    <h2>Callbacks Example</h2>
+  </body>
+  <script>
+    function loadScript(src, callback) {
+      let script = document.createElement("script");
+      script.src = src;
+
+      script.onload = () => callback(null);
+      script.onerror = () =>
+        callback(new Error(`Something went wrong with loading ${src}`));
+
+      document.head.append(script);
+    }
+
+    function createQuoteDiv() {
+      const div = document.createElement("div");
+
+      div.textContent = getRandomQuote();
+      document.body.append(div);
+    }
+
+    loadScript("myScript.js", function (error) {
+      if (error) console.error(error.message);
+      else {
+        loadScript("myScript2.js", function () {
+          if (error) console.error(error.message);
+          else {
+            loadScript("myScript3.js", function () {
+              if (error) console.error(error.message);
+              else {
+                createQuoteDiv();
+                printMessage();
+                alertMessage();
+              }
+            });
+          }
+        });
+      }
+    });
+  </script>
+</html>
